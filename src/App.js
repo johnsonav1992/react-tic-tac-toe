@@ -35,9 +35,15 @@ function App() {
 					square.classList.add('no-click')
 				})
 				return `${arr[a]} wins!`
-			}
+			} else if (!arr.includes('')) {
+				const squares = document.querySelectorAll('.square')
+				squares.forEach(square => {
+					square.classList.add('no-click')
+				})
+				return `It's a draw`
+			} else return `Who will win?`
 		}
-		return `Who will win?`
+		
 	}
 
 	return (
