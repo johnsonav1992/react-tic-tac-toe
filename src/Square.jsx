@@ -16,7 +16,7 @@ function Square(props) {
 	}
 
 	return <div className='square' onClick={handleClick}>
-        {props.squareValue === 'O' ? <img src="../react.svg" /> : props.squareValue}
+        {props.squareValue === 'O' ? <img src="../react.svg" alt="react-logo" /> : props.squareValue}
     </div>
 }
 
