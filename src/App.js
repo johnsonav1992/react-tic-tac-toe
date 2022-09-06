@@ -29,14 +29,14 @@ function App() {
 
 		for (let i = 0; i < wins.length; i++) {
 			const [a, b, c] = wins[i]
+			const squares = document.querySelectorAll('.square')
+
 			if (arr[a] && arr[a] === arr[b] && arr[a] === arr[c]) {
-				const squares = document.querySelectorAll('.square')
 				squares.forEach(square => {
 					square.classList.add('no-click')
 				})
 				return `${arr[a]} wins!`
 			} else if (!arr.includes('')) {
-				const squares = document.querySelectorAll('.square')
 				squares.forEach(square => {
 					square.classList.add('no-click')
 				})
