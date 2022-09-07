@@ -16,6 +16,8 @@ function App() {
 	}
 
 	function calculateWinner(arr) {
+		let hasWon = false
+		const squares = document.querySelectorAll('.square')
 		const wins = [
 			[0, 1, 2],
 			[3, 4, 5],
@@ -29,21 +31,21 @@ function App() {
 
 		for (let i = 0; i < wins.length; i++) {
 			const [a, b, c] = wins[i]
-			const squares = document.querySelectorAll('.square')
-
-			if (!arr.includes('')) {
-				squares.forEach(square => {
-					square.classList.add('no-click')
-				})
-				return `It's a draw`
-			}
 
 			if (arr[a] && arr[a] === arr[b] && arr[a] === arr[c]) {
+				hasWon = true
 				squares.forEach(square => {
 					square.classList.add('no-click')
 				})
 				return `${arr[a]} wins!`
 			}
+		}
+
+		if (!arr.includes('') && hasWon === false)  {
+			squares.forEach(square => {
+				square.classList.add('no-click')
+			})
+			return `It's a draw`
 		}
 	}
 
