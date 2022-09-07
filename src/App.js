@@ -31,17 +31,22 @@ function App() {
 			const [a, b, c] = wins[i]
 			const squares = document.querySelectorAll('.square')
 
-			if (arr[a] && arr[a] === arr[b] && arr[a] === arr[c]) {
-				squares.forEach(square => {
-					square.classList.add('no-click')
-				})
-				return `${arr[a]} wins!`
-			} else if (!arr.includes('')) {
+			if (!arr.includes('')) {
 				squares.forEach(square => {
 					square.classList.add('no-click')
 				})
 				return `It's a draw`
-			} else return `Who will win?`
+			}
+
+			if (arr[a] &&
+				arr[a] === arr[b] &&
+				arr[a] === arr[c]) {
+				squares.forEach(square => {
+					square.classList.add('no-click')
+				})
+				return `${arr[a]} wins!`
+			}
+			
 		}
 		
 	}
@@ -56,6 +61,7 @@ function App() {
 				{squares.map((value, i) => {
 					return (
 						<Square
+							key={i}
 							squares={squares}
 							setSquares={setSquares}
 							player={player}
@@ -66,7 +72,7 @@ function App() {
 					)
 				})}
 			</div>
-			<span>{calculateWinner(squares)}</span>
+			<span>{calculateWinner(squares) || `Who will win?`}</span>
 			<button className="reset-btn" onClick={handleReset}>
 				Reset
 			</button>
