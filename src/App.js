@@ -38,17 +38,13 @@ function App() {
 				return `It's a draw`
 			}
 
-			if (arr[a] &&
-				arr[a] === arr[b] &&
-				arr[a] === arr[c]) {
+			if (arr[a] && arr[a] === arr[b] && arr[a] === arr[c]) {
 				squares.forEach(square => {
 					square.classList.add('no-click')
 				})
 				return `${arr[a]} wins!`
 			}
-			
 		}
-		
 	}
 
 	return (
